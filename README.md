@@ -74,3 +74,14 @@ Abrir el notebook o script de python necesario y poner a correr.
 Estos modelos rentrenados podrán ser perfectamente incorporados a los pipelines de Deepstream o subidos a Tritón paras realizar las inferencias.
 
 Cualquier otra duda se podrá solventar dentro del set de tutoriales [TAO Toolkit](https://docs.nvidia.com/tao/tao-toolkit/index.html) 
+
+# Entrenar los modelos de ReID disponibles en Tao-toolkit
+Para entrenar los modelos deben seguirse el paso a paso de los notebooks [reidentificationnet_resnet.ipynb](/reidentificationnet_resnet.ipynb) para una Resnet50 y [reidentificationnet_swin.ipynb](/reidentificationnet_resnet.ipynb) para un red Swin Transformer. Dentro de la carpeta [specs](/specs/) vienen colocados los respectivos archivos de configuración de cada modelo. 
+
+Luego del entrenamiebnto, para que el resto del c'odigo funcione, se debe copiar el mejor chekpoint del modelo en la carpeta del experimento (justo fuera de la carpeta /train) con el nombre de la propia carpeta y la misma extensión `.tlt`. 
+
+## Registro en CometML
+Parag registrar el experimento en comet se debe asegurar tener en el directorio raiz un archivo `.env` con la API_Key de comet puesta de esta manera:
+```
+COMET_API_KEY = <tu api_key>
+```
